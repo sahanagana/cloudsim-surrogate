@@ -54,7 +54,7 @@ public class MonteCarlo {
 		RandomizedDatacenterBroker broker = new RandomizedDatacenterBroker("Broker");
 		int brokerId = broker.getId();
 		
-		broker.submitVmList(generateRandomVms(brokerId, 5));
+		broker.submitVmList(generateRandomVms(brokerId, datacenter.getHostList(), 5));
 		broker.submitCloudletList(generateRandomCloudlets(brokerId, 5));
 
 		// Sixth step: Starts the simulation
@@ -76,10 +76,13 @@ public class MonteCarlo {
 		return new Vm(vmid, brokerId, mips, pesNumber, ram, bw, size, vmm, new CloudletSchedulerTimeShared());
 	}
 	
-	private static ArrayList<Vm> generateRandomVms(int brokerId, int num) {
+	private static ArrayList<Vm> generateRandomVms(int brokerId, List<Host> hostList, int num) {
 		ArrayList<Vm> arr = new ArrayList<Vm>();
+		Random rand = new Random();
 		for (int i = 0; i < num; i ++) {
 			Vm vm = randomVm(brokerId, i, (int) 1000 / num);
+			// Host selectedHost = hostList.get(rand.nextInt(hostList.size()));
+			// selectedHost.vmCreate(vm);
 			arr.add(vm);
 		}
 		return arr;

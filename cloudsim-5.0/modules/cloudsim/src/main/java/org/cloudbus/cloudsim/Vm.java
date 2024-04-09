@@ -21,6 +21,9 @@ import java.util.List;
  * @since CloudSim Toolkit 1.0
  */
 public class Vm {
+	
+	// Stores which host this vm is bound for
+	public int hostId = -1;
 
 	/** The VM unique id. */
 	private int id;
