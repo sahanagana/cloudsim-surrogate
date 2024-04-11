@@ -43,10 +43,10 @@ public class MonteCarlo extends RandomRunner {
 			String workload,
 			String vmSelectionPolicy,
 			String parameter,
-			int num_vms_min,
-			int num_vms_max,
 			int num_hosts_min,
 			int num_hosts_max,
+			int num_vms_min,
+			int num_vms_max,
 			int num_cloudlets_min,
 			int num_cloudlets_max) {
 		super(
