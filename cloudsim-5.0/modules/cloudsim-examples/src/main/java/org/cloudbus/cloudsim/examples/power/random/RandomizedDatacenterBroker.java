@@ -5,17 +5,13 @@ import java.util.Random;
 
 import org.cloudbus.cloudsim.DatacenterBroker;
 import org.cloudbus.cloudsim.Cloudlet;
-import org.cloudbus.cloudsim.Host;
-import org.cloudbus.cloudsim.Vm;
 
 public class RandomizedDatacenterBroker extends DatacenterBroker{
-	public ArrayList<Vm> vmList;
 	public ArrayList<Integer> cloudletAllocations;
 	private Random rand;
 
     public RandomizedDatacenterBroker(String name) throws Exception {
 		super(name);
-		vmList = new ArrayList<>();
 		cloudletAllocations = new ArrayList<>();
 		rand = new Random();
 	}

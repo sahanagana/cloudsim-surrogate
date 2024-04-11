@@ -5,7 +5,6 @@ import java.util.Random;
 
 import org.cloudbus.cloudsim.Log;
 import org.cloudbus.cloudsim.core.CloudSim;
-import org.cloudbus.cloudsim.examples.power.Helper;
 
 /**
  * The example runner for the random workload.
