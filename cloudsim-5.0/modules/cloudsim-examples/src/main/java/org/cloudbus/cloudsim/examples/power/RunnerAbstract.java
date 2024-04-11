@@ -21,6 +21,7 @@ import org.cloudbus.cloudsim.power.PowerVmAllocationPolicyMigrationLocalRegressi
 import org.cloudbus.cloudsim.power.PowerVmAllocationPolicyMigrationMedianAbsoluteDeviation;
 import org.cloudbus.cloudsim.power.PowerVmAllocationPolicyMigrationStaticThreshold;
 import org.cloudbus.cloudsim.power.PowerVmAllocationPolicySimple;
+import org.cloudbus.cloudsim.power.PowerVmAllocationPolicyDeterministic;
 import org.cloudbus.cloudsim.power.PowerVmSelectionPolicy;
 import org.cloudbus.cloudsim.power.PowerVmSelectionPolicyMaximumCorrelation;
 import org.cloudbus.cloudsim.power.PowerVmSelectionPolicyMinimumMigrationTime;
@@ -284,6 +285,8 @@ public abstract class RunnerAbstract {
 					parameter);
 		} else if (vmAllocationPolicyName.equals("dvfs")) {
 			vmAllocationPolicy = new PowerVmAllocationPolicySimple(hostList);
+		} else if (vmAllocationPolicyName.equals("deterministic")) {  // Custom vm allocation policy
+			vmAllocationPolicy = new PowerVmAllocationPolicyDeterministic(hostList);
 		} else {
 			System.out.println("Unknown VM allocation policy: " + vmAllocationPolicyName);
 			System.exit(0);

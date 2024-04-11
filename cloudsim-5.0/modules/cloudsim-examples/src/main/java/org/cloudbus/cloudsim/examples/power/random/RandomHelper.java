@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.cloudbus.cloudsim.Cloudlet;
-import org.cloudbus.cloudsim.UtilizationModel;
-import org.cloudbus.cloudsim.UtilizationModelNull;
 import org.cloudbus.cloudsim.UtilizationModelStochastic;
 import org.cloudbus.cloudsim.examples.power.Constants;
 
@@ -42,7 +40,6 @@ public class RandomHelper {
 		long fileSize = 300;
 		long outputSize = 300;
 		long seed = RandomConstants.CLOUDLET_UTILIZATION_SEED;
-		UtilizationModel utilizationModelNull = new UtilizationModelNull();
 
 		for (int i = 0; i < cloudletsNumber; i++) {
 			Cloudlet cloudlet = null;
@@ -54,8 +51,8 @@ public class RandomHelper {
 						fileSize,
 						outputSize,
 						new UtilizationModelStochastic(),
-						utilizationModelNull,
-						utilizationModelNull);
+						new UtilizationModelStochastic(),
+						new UtilizationModelStochastic());
 			} else {
 				cloudlet = new Cloudlet(
 						i,
@@ -63,9 +60,9 @@ public class RandomHelper {
 						Constants.CLOUDLET_PES,
 						fileSize,
 						outputSize,
-						new UtilizationModelStochastic(seed * i),
-						utilizationModelNull,
-						utilizationModelNull);
+						new UtilizationModelStochastic(),
+						new UtilizationModelStochastic(),
+						new UtilizationModelStochastic());
 			}
 			cloudlet.setUserId(brokerId);
 			cloudlet.setVmId(i);
